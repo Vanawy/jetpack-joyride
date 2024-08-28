@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://g8tpj60hxom2"]
+
+[ext_resource type="Script" path="res://Corpse.gd" id="1_eluwo"]
+[ext_resource type="Texture2D" uid="uid://rjr0h5i0xbm2" path="res://playerr.png" id="2_p7vwa"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mfk54"]
+bounce = 0.6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjxjn"]
+atlas = ExtResource("2_p7vwa")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_378ly"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjxjn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78ed6"]
+radius = 8.0
+
+[node name="Corpse" type="RigidBody2D"]
+position = Vector2(64, 80)
+collision_layer = 8
+physics_material_override = SubResource("PhysicsMaterial_mfk54")
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_eluwo")
+
+[node name="DroppedDeadTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.05
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_378ly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("CircleShape2D_78ed6")
+debug_color = Color(0.160784, 0.643137, 0, 0.419608)

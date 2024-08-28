@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc37eukb3e3ax"]
+
+[ext_resource type="PackedScene" uid="uid://crqxvi0fk7lsy" path="res://obstacles/laser.tscn" id="1_2dl1y"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_70xtx"]
+resource_local_to_scene = true
+b = Vector2(128, 0)
+
+[node name="Laser" instance=ExtResource("1_2dl1y")]
+
+[node name="Line2D" parent="." index="0"]
+points = PackedVector2Array(0, 0, 128, 0)
+
+[node name="AnchorB" parent="." index="2"]
+position = Vector2(128, 0)
+
+[node name="CollisionShape2D" parent="." index="4"]
+shape = SubResource("SegmentShape2D_70xtx")
+
+[node name="CollisionCircleB" parent="." index="6"]
+position = Vector2(128, 0)
+
+[node name="OffscreenDestroyer" parent="." index="7"]
+left_limit = -192

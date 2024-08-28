@@ -1,0 +1,669 @@
+[gd_scene load_steps=31 format=3 uid="uid://o2qpma80e8k5"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_80nkf"]
+[ext_resource type="Texture2D" uid="uid://cyde0kei8l6hs" path="res://platformer.png" id="1_gsaik"]
+[ext_resource type="Script" path="res://room.gd" id="2_k1pwo"]
+[ext_resource type="Script" path="res://Player.gd" id="4_b3k1r"]
+[ext_resource type="Texture2D" uid="uid://fcvte0ovr7qd" path="res://booble-Sheet.png" id="4_kyvrn"]
+[ext_resource type="Texture2D" uid="uid://rjr0h5i0xbm2" path="res://playerr.png" id="4_meika"]
+[ext_resource type="Script" path="res://obstacle_parent.gd" id="7_bxpgp"]
+[ext_resource type="Script" path="res://obstacle_manager.gd" id="8_t7fnx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vbe58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk0gh"]
+size = Vector2(288, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lopoe"]
+size = Vector2(16, 112)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nun5"]
+texture = ExtResource("1_gsaik")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+17:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+18:11/0 = 0
+19:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+19:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+17:13/0 = 0
+18:13/0 = 0
+19:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+18:14/0 = 0
+19:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+17:15/0 = 0
+18:15/0 = 0
+19:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+16:16/0 = 0
+17:16/0 = 0
+18:16/0 = 0
+19:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+16:17/0 = 0
+17:17/0 = 0
+18:17/0 = 0
+19:17/0 = 0
+0:18/0 = 0
+1:18/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+4:18/0 = 0
+5:18/0 = 0
+6:18/0 = 0
+7:18/0 = 0
+8:18/0 = 0
+9:18/next_alternative_id = 4
+9:18/0 = 0
+10:18/0 = 0
+11:18/0 = 0
+12:18/0 = 0
+13:18/0 = 0
+14:18/0 = 0
+15:18/0 = 0
+16:18/0 = 0
+17:18/0 = 0
+18:18/0 = 0
+19:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+12:19/0 = 0
+13:19/0 = 0
+14:19/0 = 0
+15:19/0 = 0
+16:19/0 = 0
+17:19/0 = 0
+18:19/0 = 0
+19:19/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ngdld"]
+sources/0 = SubResource("TileSetAtlasSource_4nun5")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qpq5"]
+atlas = ExtResource("4_meika")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocyc8"]
+atlas = ExtResource("4_meika")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wudb5"]
+atlas = ExtResource("4_meika")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg8km"]
+atlas = ExtResource("4_meika")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvegm"]
+atlas = ExtResource("4_meika")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u075c"]
+atlas = ExtResource("4_meika")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4drew"]
+atlas = ExtResource("4_meika")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qm2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qpq5")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocyc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wudb5")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg8km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvegm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u075c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4drew")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ey4y"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovulp"]
+atlas = ExtResource("4_kyvrn")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osm3o"]
+atlas = ExtResource("4_kyvrn")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfgyb"]
+atlas = ExtResource("4_kyvrn")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te1pq"]
+atlas = ExtResource("4_kyvrn")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fda7j"]
+atlas = ExtResource("4_kyvrn")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4f61"]
+atlas = ExtResource("4_kyvrn")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kh6w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovulp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osm3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfgyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osm3o")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"hidden",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te1pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fda7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4f61")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"pop",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2akx6"]
+size = Vector2(6, 8)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_80nkf")
+
+[node name="DebugLabel" type="Label" parent="."]
+z_index = 4096
+offset_right = 256.0
+offset_bottom = 64.0
+text = "Debug"
+label_settings = SubResource("LabelSettings_vbe58")
+
+[node name="RoomBorders" type="StaticBody2D" parent="."]
+z_index = 3
+collision_mask = 10
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RoomBorders"]
+position = Vector2(128, 144)
+shape = SubResource("RectangleShape2D_sk0gh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RoomBorders"]
+position = Vector2(-8, 72)
+shape = SubResource("RectangleShape2D_lopoe")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RoomBorders"]
+position = Vector2(264, 72)
+shape = SubResource("RectangleShape2D_lopoe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomBorders"]
+position = Vector2(128, 0)
+shape = SubResource("RectangleShape2D_sk0gh")
+
+[node name="Room" type="Node2D" parent="."]
+script = ExtResource("2_k1pwo")
+
+[node name="TileMap" type="TileMap" parent="Room"]
+tile_set = SubResource("TileSet_ngdld")
+format = 2
+layer_0/name = "Ground"
+layer_0/tile_data = PackedInt32Array(20, 1048576, 15, 19, 1048576, 11, 18, 1048576, 11, 17, 1048576, 11, 16, 1048576, 11, 15, 1048576, 11, 14, 1048576, 15, 13, 1048576, 11, 12, 1048576, 15, 11, 1048576, 15, 10, 1048576, 11, 9, 1048576, 11, 8, 1048576, 11, 7, 1048576, 11, 6, 1048576, 11, 5, 1048576, 11, 4, 1048576, 15, 3, 1048576, 15, 2, 1048576, 11, 1, 1048576, 15, 0, 1048576, 15, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 720896, 10, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 720896, 10, 589835, 0, 0, 589836, 0, 0, 589837, 786432, 10, 589838, 983040, 10, 589839, 1048576, 10, 589840, 1114112, 10, 589841, 655360, 10, 589842, 720896, 10, 589843, 0, 0, 589844, 0, 0, 524288, 720896, 9, 524289, 720896, 9, 524290, 720896, 9, 524291, 720896, 9, 524292, 720896, 9, 524293, 720896, 9, 524294, 720896, 9, 524295, 720896, 9, 524296, 720896, 9, 524297, 720896, 9, 524298, 720896, 9, 524299, 720896, 9, 524300, 720896, 9, 524301, 786432, 9, 524302, 983040, 9, 524303, 1048576, 9, 524304, 1114112, 9, 524305, 655360, 9, 524306, 720896, 9, 524307, 720896, 9, 524308, 720896, 9)
+layer_1/name = "Back"
+layer_1/modulate = Color(0.505882, 0.505882, 0.505882, 1)
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array(15, 458752, 12, 65551, 458752, 12, 131087, 458752, 12, 196623, 458752, 12, 262159, 458752, 12, 327695, 458752, 12, 393231, 458752, 12, 458767, 458752, 12, 524303, 458752, 12, 524302, 0, 0, 458766, 0, 0, 393230, 0, 0, 327694, 0, 0, 262158, 0, 0, 196622, 0, 0, 131086, 0, 0, 65550, 0, 0, 14, 0, 0, 16, 0, 0, 65552, 0, 0, 131088, 0, 0, 196624, 0, 0, 262160, 0, 0, 327696, 0, 0, 393232, 0, 0, 458768, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 458772, 0, 0, 458771, 0, 0, 458770, 0, 0, 458769, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 327700, 0, 0, 327699, 0, 0, 327698, 0, 0, 327697, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 196628, 0, 0, 196627, 0, 0, 196626, 0, 0, 196625, 0, 0, 131089, 0, 0, 65553, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 65556, 0, 0, 131092, 0, 0, 131091, 393216, 0, 131090, 0, 0, 65554, 0, 0, 65555, 196608, 0, 13, 0, 0, 12, 0, 0, 11, 0, 0, 10, 0, 0, 9, 0, 0, 8, 0, 0, 7, 0, 0, 6, 0, 0, 5, 0, 0, 4, 0, 0, 3, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 458765, 0, 0, 393229, 0, 0, 327693, 0, 0, 262157, 0, 0, 196621, 0, 0, 131085, 0, 0, 65549, 0, 0, 65548, 0, 0, 65547, 0, 0, 65546, 196608, 0, 65545, 0, 0, 65544, 196608, 0, 65543, 0, 0, 65542, 0, 0, 65541, 0, 0, 65540, 0, 0, 65539, 0, 0, 65538, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 393228, 0, 0, 393227, 0, 0, 393226, 0, 0, 393225, 0, 0, 393224, 0, 0, 393223, 0, 0, 393222, 0, 0, 393221, 0, 0, 393220, 0, 0, 393219, 0, 0, 393218, 0, 0, 327682, 0, 0, 262146, 0, 0, 196610, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 589824, 18, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 196608, 1, 131081, 0, 0, 131082, 196608, 1, 131083, 0, 0, 131084, 589824, 18, 196620, 0, 0, 262156, 0, 0, 327692, 0, 0, 327691, 0, 0, 327690, 0, 0, 327689, 0, 0, 327688, 196608, 2, 327687, 0, 0, 327686, 0, 0, 327685, 0, 0, 327684, 0, 0, 327683, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 196608, 1, 196617, 0, 0, 196618, 393216, 0, 196619, 0, 0, 262155, 0, 0, 262154, 0, 0, 262153, 0, 0, 262152, 196608, 1, 262151, 0, 0, 262150, 0, 0, 262149, 0, 0, 262148, 0, 0, 262147, 0, 0)
+
+[node name="End" type="Marker2D" parent="Room"]
+position = Vector2(336, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(4, 4)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(16, 112)
+collision_layer = 2
+script = ExtResource("4_b3k1r")
+
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_8qm2u")
+animation = &"fly"
+autoplay = "run"
+frame_progress = 0.0615339
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(8, 10)
+shape = SubResource("CircleShape2D_2ey4y")
+debug_color = Color(0.160784, 0.643137, 0, 0.419608)
+
+[node name="BubbleSprite" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(8, 10)
+sprite_frames = SubResource("SpriteFrames_1kh6w")
+animation = &"hidden"
+autoplay = "hidden"
+
+[node name="Hitbox" type="Area2D" parent="Player"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hitbox"]
+position = Vector2(8, 11)
+shape = SubResource("RectangleShape2D_2akx6")
+debug_color = Color(0, 0.607843, 0.145098, 0.419608)
+
+[node name="StaticObstaclesParent" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="MovingObstaclesParent" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_bxpgp")
+
+[node name="ObstacleManager" type="Node" parent="."]
+script = ExtResource("8_t7fnx")
+
+[node name="BottomSpikesSpawn" type="Marker2D" parent="ObstacleManager"]
+position = Vector2(288, 112)
+
+[node name="TopSpikesSpawn" type="Marker2D" parent="ObstacleManager"]
+position = Vector2(304, 32)
+
+[node name="SpikesTimer" type="Timer" parent="ObstacleManager"]
+process_callback = 0
+autostart = true

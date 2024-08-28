@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://crqxvi0fk7lsy"]
+
+[ext_resource type="Script" path="res://Laser.gd" id="1_wvn4a"]
+[ext_resource type="Texture2D" uid="uid://cyde0kei8l6hs" path="res://platformer.png" id="2_tunkv"]
+[ext_resource type="PackedScene" uid="uid://cbjbe7ohn5xb4" path="res://components/offscreen_destroyer.tscn" id="3_6j5pa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veum5"]
+atlas = ExtResource("2_tunkv")
+region = Rect2(0, 304, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnpgs"]
+atlas = ExtResource("2_tunkv")
+region = Rect2(16, 304, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iv882"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veum5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnpgs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_gi0j5"]
+resource_name = "blink"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2000, 1),
+"update": 0,
+"values": [Color(0.862745, 0.862745, 0.862745, 1), Color(0.356863, 0.356863, 0.356863, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line2D:width")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-200, 1),
+"update": 0,
+"values": [6.0, 4.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_maj4x"]
+_data = {
+"blink": SubResource("Animation_gi0j5")
+}
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r7pj6"]
+resource_local_to_scene = true
+b = Vector2(0, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vw1it"]
+radius = 6.0
+
+[node name="Laser" type="AnimatableBody2D"]
+collision_layer = 4
+collision_mask = 2
+sync_to_physics = false
+script = ExtResource("1_wvn4a")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 32)
+width = 4.0
+default_color = Color(0.356863, 0.356863, 0.356863, 1)
+
+[node name="AnchorA" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iv882")
+autoplay = "default"
+frame_progress = 0.543378
+offset = Vector2(0, -2)
+
+[node name="AnchorB" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_iv882")
+autoplay = "default"
+frame_progress = 0.67623
+offset = Vector2(0, -2)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="AnchorB"]
+remote_path = NodePath("../../CollisionCircleB")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_maj4x")
+}
+autoplay = "blink"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_r7pj6")
+debug_color = Color(0.992157, 0, 0.254902, 0.419608)
+
+[node name="CollisionCircleA" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vw1it")
+debug_color = Color(0.984314, 0, 0.345098, 0.419608)
+
+[node name="CollisionCircleB" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
+shape = SubResource("CircleShape2D_vw1it")
+debug_color = Color(0.984314, 0, 0.345098, 0.419608)
+
+[node name="OffscreenDestroyer" parent="." instance=ExtResource("3_6j5pa")]

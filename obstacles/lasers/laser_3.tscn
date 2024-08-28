@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://byg1lqb1b18ko"]
+
+[ext_resource type="PackedScene" uid="uid://crqxvi0fk7lsy" path="res://obstacles/laser.tscn" id="1_u4x0b"]
+
+[node name="Laser" instance=ExtResource("1_u4x0b")]
+
+[node name="Line2D" parent="." index="0"]
+points = PackedVector2Array(0, 0, -32, 32)
+
+[node name="AnchorB" parent="." index="2"]
+position = Vector2(-32, 32)
+
+[node name="CollisionCircleB" parent="." index="6"]
+position = Vector2(-32, 32)
